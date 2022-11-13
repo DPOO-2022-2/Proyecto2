@@ -36,6 +36,13 @@ public class PantallaInicialAdministrador extends JFrame {
 		contentPane.add(lbMenuAdministrador);
 		
 		JButton btnRegistros = new JButton("Registros");
+		btnRegistros.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				PantallaRegistrosAdministrador r = new PantallaRegistrosAdministrador();
+				r.setVisible(true);
+			}
+		});
 		btnRegistros.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		btnRegistros.setBounds(247, 96, 392, 132);
 		contentPane.add(btnRegistros);

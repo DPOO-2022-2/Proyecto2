@@ -68,6 +68,8 @@ public class CreacionUsuario extends JFrame {
 				UsuarioNuevo.setNombreUsuario(usuario);
 				UsuarioNuevo.setContrasena(contrasena);
 				
+				Main.usuarios.add(UsuarioNuevo);
+				
 				textFieldUsuarioNuevo.setText("");
 				passwordFieldContrasenaNueva.setText("");
 				
@@ -84,9 +86,10 @@ public class CreacionUsuario extends JFrame {
 		JButton btnRegresar = new JButton("Regresar");
 		btnRegresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				 frame.setVisible(false);
-	            // PantallaLogIn.getInstance().setVisible(true);
+				 
+				 PantallaLogIn pantalla = new PantallaLogIn();
+				 pantalla.setVisible(true);
+						 
 			}
 		});
 		btnRegresar.setFont(new Font("Tahoma", Font.PLAIN, 16));

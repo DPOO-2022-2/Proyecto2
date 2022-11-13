@@ -1,7 +1,6 @@
 package InterfazGrafica;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,6 +16,10 @@ import javax.swing.border.EmptyBorder;
 
 public class PantallaLogIn extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JFrame frame;
 	private JPanel contentPane;
 	private JTextField textFieldUsuario;
@@ -66,7 +69,7 @@ public class PantallaLogIn extends JFrame {
 				
 				if("administrador".equals(usuario) && "administrador".equals(contresena))
 				{
-					
+									
 					PantallaInicialAdministrador pantalla = new PantallaInicialAdministrador();
 					pantalla.setVisible(true);
 					
@@ -78,7 +81,7 @@ public class PantallaLogIn extends JFrame {
 				{
 					for(Usuario u: Main.usuarios) 
 					{
-						if(u.getContrasena().equals(contresena) && u.getNombreUsuario().equals(usuario))
+						if(u.getContrasena().equals(contresena) && u.getNombreUsuario().equals(usuario)) //revisa los usuarios guardados en el array list
 						{
 							PantallaInicialUsuario pantalla = new PantallaInicialUsuario();
 							pantalla.setVisible(true);
@@ -90,8 +93,9 @@ public class PantallaLogIn extends JFrame {
 						}
 					}
 				}
+			}		
 			}
-		});
+		);
 		btnIniciarSesion.setBounds(315, 239, 176, 41);
 		contentPane.add(btnIniciarSesion);
 		
@@ -99,7 +103,7 @@ public class PantallaLogIn extends JFrame {
 		btnCrearUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				//this.setVisible(false); //
+				//this.setVisible(false); 
 				
 				CreacionUsuario crear = new CreacionUsuario();
 				crear.setVisible(true);
@@ -112,8 +116,6 @@ public class PantallaLogIn extends JFrame {
 	}
 
 
-	public static Object getInstance() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 }
+
