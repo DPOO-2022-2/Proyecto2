@@ -10,6 +10,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class PantallaRegistroNominas extends JFrame {
 
@@ -22,6 +23,7 @@ public class PantallaRegistroNominas extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 900, 700);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(192, 192, 192));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -65,7 +67,7 @@ public class PantallaRegistroNominas extends JFrame {
 			}
 		});
 		btnRegresarMenuRegistros.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnRegresarMenuRegistros.setBounds(259, 570, 395, 31);
+		btnRegresarMenuRegistros.setBounds(248, 568, 395, 31);
 		contentPane.add(btnRegresarMenuRegistros);
 	}
 }

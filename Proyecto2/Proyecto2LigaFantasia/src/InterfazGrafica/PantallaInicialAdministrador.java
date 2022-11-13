@@ -32,7 +32,7 @@ public class PantallaInicialAdministrador extends JFrame {
 		
 		JLabel lbMenuAdministrador = new JLabel("MENU ADMINISTRADOR");
 		lbMenuAdministrador.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lbMenuAdministrador.setBounds(272, 24, 359, 34);
+		lbMenuAdministrador.setBounds(271, 39, 359, 34);
 		contentPane.add(lbMenuAdministrador);
 		
 		JButton btnRegistros = new JButton("Registros");
@@ -44,25 +44,31 @@ public class PantallaInicialAdministrador extends JFrame {
 			}
 		});
 		btnRegistros.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		btnRegistros.setBounds(247, 96, 392, 132);
+		btnRegistros.setBounds(239, 144, 392, 132);
 		contentPane.add(btnRegistros);
 		
 		JButton btnConfiguracion = new JButton("Configuracion");
 		btnConfiguracion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				PantallaConfiguracionAdministrador PCA = new PantallaConfiguracionAdministrador();
+				PCA.setVisible(true);
 			}
 		});
 		btnConfiguracion.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		btnConfiguracion.setBounds(247, 275, 392, 132);
+		btnConfiguracion.setBounds(239, 360, 392, 132);
 		contentPane.add(btnConfiguracion);
-		
-		JButton btnCrearTemporada = new JButton("Crear temporada");
-		btnCrearTemporada.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		btnCrearTemporada.setBounds(247, 450, 392, 132);
-		contentPane.add(btnCrearTemporada);
 		
 		Canvas canvas = new Canvas();
 		canvas.setBounds(154, 10, 94, 74);
 		contentPane.add(canvas);
+		
+		JLabel lblNewLabel = new JLabel("Registro de resultados y nominas");
+		lblNewLabel.setBounds(356, 282, 274, 14);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Configuracion de aspectos y Temporada");
+		lblNewLabel_1.setBounds(341, 503, 227, 14);
+		contentPane.add(lblNewLabel_1);
 	}
 }

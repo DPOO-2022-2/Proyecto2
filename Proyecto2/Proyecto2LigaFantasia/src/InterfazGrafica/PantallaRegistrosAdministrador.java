@@ -56,7 +56,7 @@ public class PantallaRegistrosAdministrador extends JFrame {
 		btnRegistrarNominas.setBounds(223, 379, 464, 132);
 		contentPane.add(btnRegistrarNominas);
 		
-		JButton btnRegresarMenuAddministrador = new JButton("Regresar Menu Addministrador");
+		JButton btnRegresarMenuAddministrador = new JButton("Regresar Menu Administrador");
 		btnRegresarMenuAddministrador.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
