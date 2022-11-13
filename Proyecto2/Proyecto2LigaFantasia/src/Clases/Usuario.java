@@ -1,4 +1,4 @@
-package InterfazGrafica;
+package Clases;
 
 public class Usuario {
 	

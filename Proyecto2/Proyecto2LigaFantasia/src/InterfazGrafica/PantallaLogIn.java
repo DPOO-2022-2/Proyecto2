@@ -14,6 +14,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import Clases.Usuario;
+
 public class PantallaLogIn extends JFrame {
 
 	/**

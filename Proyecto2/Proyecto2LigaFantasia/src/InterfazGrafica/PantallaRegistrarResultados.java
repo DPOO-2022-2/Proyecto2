@@ -7,6 +7,10 @@ import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
+
+import Clases.DesempenioPartido;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -15,10 +19,17 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.awt.event.ActionEvent;
 
 public class PantallaRegistrarResultados extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textFieldEquipoLocal;
 	private JTextField textFieldMarcadoEquipoLocal;
@@ -26,7 +37,6 @@ public class PantallaRegistrarResultados extends JFrame {
 	private JTextField textFieldMarcadorEquipoVisitante;
 	private JTextField textFieldFechaPartido;
 	private JTable table;
-
 
 	/**
 	 * Create the frame.
@@ -104,8 +114,8 @@ public class PantallaRegistrarResultados extends JFrame {
 		table.setBounds(67, 374, 772, 276);
 		contentPane.add(table);
 		
-		JButton btnCargarArchivocsv = new JButton("Cargar Archivo Csv");
-		btnCargarArchivocsv.addActionListener(new ActionListener() {
+		JButton btnGuardar = new JButton("Guardar");
+		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				JFileChooser seleccionarArchivo = new JFileChooser();
@@ -115,22 +125,85 @@ public class PantallaRegistrarResultados extends JFrame {
 				
 				int seleccionar = seleccionarArchivo.showOpenDialog(this);
 				
-				if(seleccionar == JFileChooser.APPROVE_OPTION) {
+				if(seleccionar == JFileChooser.APPROVE_OPTION) 
+				{
 					
 					File archivo = new seleccionarArchivo.getSelectedFile();
-					cargarArchivo(archivo);
-					
-					
-					
+					guardarArchivo(archivo);		
 				}
 			}
+
+			private void guardarArchivo(File archivo) {
+				
+				FileWriter archive = null;
+				PrintWriter pw = null;
+				
+				try {
+					
+					archive = new FileWriter(archivo);
+					pw = new PrintWriter(archive);
+					
+					for (DesempenioPartido DP: desempeno) {
+						
+						String linea = DP.getCantidadMinutosJugados()+","+ DP.getGoles()+ "," + DP.getAutogoles() + "," + DP.getAsistencias() + "," + DP.getGolesRecibidos()+ "," +DP.getPenalesDetenidos()+ "," +DP.getPenalesErrados()+ "," +DP.getTarjetasAmarillas()+ "," + DP.getTarjetasRojas();
+						pw.println(linea);
+						
+					}
+					
+				} catch(Exception ex){
+					
+					ex.printStackTrace();
+				}
+				
+				finally {
+					try 
+					{
+						if(archive != null) {
+							archive.close();
+						}
+					} catch(Exception e) {
+						
+						e.printStackTrace();
+					}
+					
+				}
+			
+			}
 		});
+		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnGuardar.setBounds(501, 332, 293, 31);
+		contentPane.add(btnGuardar);
+		
+		JButton btnCargarArchivo = new JButton("Cargar Archivo csv");
+		btnCargarArchivo.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			
+			JFileChooser seleccionarArchivo = new JFileChooser();
+			FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos csv","csv");
+			
+			seleccionarArchivo.setFileFilter(filtro);
+			
+			int seleccionar = seleccionarArchivo.showOpenDialog(this);
+			
+			if(seleccionar == JFileChooser.APPROVE_OPTION) 
+			{
+				
+				File archivo = new seleccionarArchivo.getSelectedFile();
+				cargarArchivo(archivo);		
+			}
+			}
+		});
+		btnCargarArchivo.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnCargarArchivo.setBounds(114, 332, 293, 31);
+		contentPane.add(btnCargarArchivo);
+		}
 		
 		public void cargarArchivo(File archivo) {
 			
 			FileReader fr = null;
 			BufferedReader br = null;
 			
+		
 			try {
 				
 				fr = new FileReader(archivo);
@@ -141,40 +214,61 @@ public class PantallaRegistrarResultados extends JFrame {
 				while ((linea=br.readLine()) !=null) {
 					
 					
+					
 					String arreglo []= linea.split(",");
 					
-					if(arreglo.lengh == 15)
+					if(arreglo.length == 15)
 					{
+						DesempenioPartido DP = new DesempenioPartido();
 						
-						u
+						DP.setCantidadMinutosJugados(Integer.parseInt(arreglo[0]));
+						DP.setGoles(Integer.parseInt(arreglo[1]));
+						DP.setAutogoles(Integer.parseInt(arreglo[2]));
+						DP.setAsistencias(Integer.parseInt(arreglo[3]));
+						DP.setGolesRecibidos(Integer.parseInt(arreglo[4]));
+						DP.setPenalesDetenidos(Integer.parseInt(arreglo[5]));
+						DP.setPenalesErrados(Integer.parseInt(arreglo[6]));
+						DP.setTarjetasAmarillas(Integer.parseInt(arreglo[7]));
+						DP.setTarjetasRojas(Integer.parseInt(arreglo[8]));
+						DP.setPuntaje(Integer.parseInt(arreglo[9]));
+						
+						DesempenioPartido.add(DP);
+						
 						
 						
 					}
 				}
 				
+				llenarTabla();
 				
 			} 
 			
 			catch(Exception ex) 
-			
 			{
-				
-				
-				
+				ex.printStackTrace();
 			}
 			
+			finally {
+				try {
+					if( fr != null) {
+						fr.close();
+					}
+					
+				}
+				catch(Exception ex) {
+					
+					ex.printStackTrace();
+					
+				}
+			}
+			
+		
 		}
+	
+	
 		
+	private void llenarTabla() {
+		DefaultTableModel modelo = new DefaultTableModel(new String[]{"CantidadMinutosJugados" , "Goles" , "Autogoles", "Asistencias", "GolesRecibidos", "PenalesDetenidos", "PenalesErrados", "TarjetasAmarillas", "TarjetasRojas", "Puntaje", "PuntajeDesenpenio"}, defaultCloseOperation);
 		
-		
-		
-		btnCargarArchivocsv.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCargarArchivocsv.setBounds(158, 327, 246, 37);
-		contentPane.add(btnCargarArchivocsv);
-		
-		JButton btnGuardar = new JButton("Guardar");
-		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnGuardar.setBounds(473, 327, 246, 37);
-		contentPane.add(btnGuardar);
 	}
 }

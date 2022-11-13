@@ -1,104 +1,105 @@
 package Clases;
 
 public class DesempenioPartido {
-	private int cantidadMinutosJugados;
-	private int goles;
-	private int autogoles;
-	private int asistencias;
-	private int golesRecibidos;
-	private int penalesDetenidos;
-	private int penalesErrados;
-	private int tarjetasAmarillas;
-	private int tarjetasRojas;
-	private int puntaje;
-	private Puntaje puntajeDesenpenio;
+	
+	private int CantidadMinutosJugados;
+	private int Goles;
+	private int Autogoles;
+	private int Asistencias;
+	private int GolesRecibidos;
+	private int PenalesDetenidos;
+	private int PenalesErrados;
+	private int TarjetasAmarillas;
+	private int TarjetasRojas;
+	private int Puntaje;
+	private Puntaje PuntajeDesenpenio;
 	
 	public Puntaje getPuntajeDesenpenio() {
-		return puntajeDesenpenio;
+		return PuntajeDesenpenio;
 	}
 
 	public void setPuntajeDesenpenio(Puntaje puntajeDesenpenio) {
-		this.puntajeDesenpenio = puntajeDesenpenio;
+		this.PuntajeDesenpenio = puntajeDesenpenio;
 	}
 
 	public int getCantidadMinutosJugados() {
-		return cantidadMinutosJugados;
+		return CantidadMinutosJugados;
 	}
 
 	public void setCantidadMinutosJugados(int cantidadMinutosJugados) {
-		this.cantidadMinutosJugados = cantidadMinutosJugados;
+		this.CantidadMinutosJugados = cantidadMinutosJugados;
 	}
 
 	public int getAutogoles() {
-		return autogoles;
+		return Autogoles;
 	}
 
 	public void setAutogoles(int autogoles) {
-		this.autogoles = autogoles;
+		this.Autogoles = autogoles;
 	}
 
 	public int getAsistencias() {
-		return asistencias;
+		return Asistencias;
 	}
 
 	public void setAsistencias(int asistencias) {
-		this.asistencias = asistencias;
+		this.Asistencias = asistencias;
 	}
 
 	public int getGolesRecibidos() {
-		return golesRecibidos;
+		return GolesRecibidos;
 	}
 
 	public void setGolesRecibidos(int golesRecibidos) {
-		this.golesRecibidos = golesRecibidos;
+		this.GolesRecibidos = golesRecibidos;
 	}
 
 	public int getPenalesDetenidos() {
-		return penalesDetenidos;
+		return PenalesDetenidos;
 	}
 
 	public void setPenalesDetenidos(int penalesDetenidos) {
-		this.penalesDetenidos = penalesDetenidos;
+		this.PenalesDetenidos = penalesDetenidos;
 	}
 
 	public int getPenalesErrados() {
-		return penalesErrados;
+		return PenalesErrados;
 	}
 
 	public void setPenalesErrados(int penalesErrados) {
-		this.penalesErrados = penalesErrados;
+		this.PenalesErrados = penalesErrados;
 	}
 
 	public int getTarjetasAmarillas() {
-		return tarjetasAmarillas;
+		return TarjetasAmarillas;
 	}
 
 	public void setTarjetasAmarillas(int tarjetasAmarillas) {
-		this.tarjetasAmarillas = tarjetasAmarillas;
+		this.TarjetasAmarillas = tarjetasAmarillas;
 	}
 
 	public int getTarjetasRojas() {
-		return tarjetasRojas;
+		return TarjetasRojas;
 	}
 
 	public void setTarjetasRojas(int tarjetasRojas) {
-		this.tarjetasRojas = tarjetasRojas;
+		this.TarjetasRojas = tarjetasRojas;
 	}
 
 	public int getGoles() {
-		return goles;
+		return Goles;
 	}
 
 	public void setGoles(int goles) {
-		this.goles = goles;
+		this.Goles = goles;
 	}
 
 	public int getPuntaje() {
-		return puntaje;
+		return Puntaje;
 	}
 
 	public void setPuntaje(int puntaje) {
-		this.puntaje = puntaje;
+		this.Puntaje = puntaje;
 	}
 
 }

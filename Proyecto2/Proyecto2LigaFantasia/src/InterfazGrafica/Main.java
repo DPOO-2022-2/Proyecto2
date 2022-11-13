@@ -1,6 +1,9 @@
 package InterfazGrafica;
 import java.util.ArrayList;
 
+import Clases.DesempenioPartido;
+import Clases.Usuario;
+
 
 public class Main 
 {
@@ -18,7 +21,15 @@ public class Main
 		
 	}
 	
+	public static ArrayList<DesempenioPartido> desempeno;
+	
+	public static void main1(String[] args) 
+	{
+		desempeno = new ArrayList<>();
+		
 
+		
+	}
 
 }
 
