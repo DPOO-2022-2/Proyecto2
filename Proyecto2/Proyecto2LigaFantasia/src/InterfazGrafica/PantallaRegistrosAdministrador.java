@@ -45,8 +45,27 @@ public class PantallaRegistrosAdministrador extends JFrame {
 		contentPane.add(btnRegistrarResultados);
 		
 		JButton btnRegistrarNominas = new JButton("Registrar Nominas");
+		btnRegistrarNominas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				PantallaRegistroNominas RM = new PantallaRegistroNominas();
+				RM.setVisible(true);
+			}
+		});
 		btnRegistrarNominas.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		btnRegistrarNominas.setBounds(223, 379, 464, 132);
 		contentPane.add(btnRegistrarNominas);
+		
+		JButton btnRegresarMenuAddministrador = new JButton("Regresar Menu Addministrador");
+		btnRegresarMenuAddministrador.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				PantallaInicialAdministrador PIA = new PantallaInicialAdministrador();
+				PIA.setVisible(true);
+			}
+		});
+		btnRegresarMenuAddministrador.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnRegresarMenuAddministrador.setBounds(255, 573, 395, 31);
+		contentPane.add(btnRegresarMenuAddministrador);
 	}
 }

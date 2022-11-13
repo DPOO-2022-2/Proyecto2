@@ -56,62 +56,62 @@ public class PantallaRegistrarResultados extends JFrame {
 		contentPane.add(lblRegistroDeResultados);
 		
 		textFieldEquipoLocal = new JTextField();
-		textFieldEquipoLocal.setBounds(231, 202, 203, 20);
+		textFieldEquipoLocal.setBounds(230, 145, 203, 20);
 		contentPane.add(textFieldEquipoLocal);
 		textFieldEquipoLocal.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Equipo Local");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel.setBounds(94, 198, 127, 20);
+		lblNewLabel.setBounds(93, 141, 127, 20);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblMarcadorEquipoLocal = new JLabel("Marcador Equipo Local");
 		lblMarcadorEquipoLocal.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblMarcadorEquipoLocal.setBounds(480, 202, 203, 20);
+		lblMarcadorEquipoLocal.setBounds(480, 141, 203, 20);
 		contentPane.add(lblMarcadorEquipoLocal);
 		
 		textFieldMarcadoEquipoLocal = new JTextField();
 		textFieldMarcadoEquipoLocal.setColumns(10);
-		textFieldMarcadoEquipoLocal.setBounds(714, 202, 105, 20);
+		textFieldMarcadoEquipoLocal.setBounds(714, 145, 105, 20);
 		contentPane.add(textFieldMarcadoEquipoLocal);
 		
 		JLabel lblEquipoVisitante = new JLabel("Equipo Visitante");
 		lblEquipoVisitante.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblEquipoVisitante.setBounds(67, 240, 158, 20);
+		lblEquipoVisitante.setBounds(62, 172, 158, 20);
 		contentPane.add(lblEquipoVisitante);
 		
 		textFieldEquipoVisitante = new JTextField();
 		textFieldEquipoVisitante.setColumns(10);
-		textFieldEquipoVisitante.setBounds(231, 244, 203, 20);
+		textFieldEquipoVisitante.setBounds(230, 176, 203, 20);
 		contentPane.add(textFieldEquipoVisitante);
 		
 		JLabel lblMarcadorEquipoVisitante = new JLabel("Marcador Equipo Visitante");
 		lblMarcadorEquipoVisitante.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblMarcadorEquipoVisitante.setBounds(451, 244, 232, 20);
+		lblMarcadorEquipoVisitante.setBounds(451, 176, 232, 20);
 		contentPane.add(lblMarcadorEquipoVisitante);
 		
 		textFieldMarcadorEquipoVisitante = new JTextField();
 		textFieldMarcadorEquipoVisitante.setColumns(10);
-		textFieldMarcadorEquipoVisitante.setBounds(714, 244, 105, 20);
+		textFieldMarcadorEquipoVisitante.setBounds(714, 176, 105, 20);
 		contentPane.add(textFieldMarcadorEquipoVisitante);
 		
 		JLabel lblFechaPartidos = new JLabel("Fecha Partido (DD/MM/AA)");
 		lblFechaPartidos.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblFechaPartidos.setBounds(202, 132, 274, 20);
+		lblFechaPartidos.setBounds(203, 110, 274, 20);
 		contentPane.add(lblFechaPartidos);
 		
 		textFieldFechaPartido = new JTextField();
 		textFieldFechaPartido.setColumns(10);
-		textFieldFechaPartido.setBounds(480, 132, 203, 20);
+		textFieldFechaPartido.setBounds(480, 110, 203, 20);
 		contentPane.add(textFieldFechaPartido);
 		
 		JLabel lblCargarDesempenos = new JLabel(" Desempeños De Jugadores ");
 		lblCargarDesempenos.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblCargarDesempenos.setBounds(303, 285, 274, 31);
+		lblCargarDesempenos.setBounds(314, 218, 274, 31);
 		contentPane.add(lblCargarDesempenos);
 		
 		table = new JTable();
-		table.setBounds(67, 374, 772, 276);
+		table.setBounds(62, 302, 772, 276);
 		contentPane.add(table);
 		
 		JButton btnGuardar = new JButton("Guardar");
@@ -171,7 +171,7 @@ public class PantallaRegistrarResultados extends JFrame {
 			}
 		});
 		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnGuardar.setBounds(501, 332, 293, 31);
+		btnGuardar.setBounds(492, 260, 293, 31);
 		contentPane.add(btnGuardar);
 		
 		JButton btnCargarArchivo = new JButton("Cargar Archivo csv");
@@ -194,8 +194,20 @@ public class PantallaRegistrarResultados extends JFrame {
 			}
 		});
 		btnCargarArchivo.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCargarArchivo.setBounds(114, 332, 293, 31);
+		btnCargarArchivo.setBounds(110, 260, 293, 31);
 		contentPane.add(btnCargarArchivo);
+		
+		JButton btnRegresarMenuRegistros = new JButton("Regresar Menu Registros");
+		btnRegresarMenuRegistros.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				PantallaRegistrosAdministrador r = new PantallaRegistrosAdministrador();
+				r.setVisible(true);
+			}
+		});
+		btnRegresarMenuRegistros.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnRegresarMenuRegistros.setBounds(314, 602, 293, 31);
+		contentPane.add(btnRegresarMenuRegistros);
 		}
 		
 		public void cargarArchivo(File archivo) {
