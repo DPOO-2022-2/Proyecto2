@@ -107,7 +107,7 @@ public class PantallaRegistrarResultados extends JFrame {
 		textFieldFechaPartido.setBounds(480, 110, 203, 20);
 		contentPane.add(textFieldFechaPartido);
 		
-		JLabel lblCargarDesempenos = new JLabel(" Desempeños De Jugadores ");
+		JLabel lblCargarDesempenos = new JLabel("Vista Registro de Resultados");
 		lblCargarDesempenos.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblCargarDesempenos.setBounds(314, 218, 274, 31);
 		contentPane.add(lblCargarDesempenos);
@@ -199,11 +199,11 @@ public class PantallaRegistrarResultados extends JFrame {
 		btnCargarArchivo.setBounds(110, 260, 293, 31);
 		contentPane.add(btnCargarArchivo);
 		
-		JButton btnRegresarMenuRegistros = new JButton("Regresar Menu Registros");
+		JButton btnRegresarMenuRegistros = new JButton("Registro de Desempeños");
 		btnRegresarMenuRegistros.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				PantallaRegistrosAdministrador r = new PantallaRegistrosAdministrador();
+				PantallaRegistroDeDesempenos r = new PantallaRegistroDeDesempenos();
 				r.setVisible(true);
 			}
 		});

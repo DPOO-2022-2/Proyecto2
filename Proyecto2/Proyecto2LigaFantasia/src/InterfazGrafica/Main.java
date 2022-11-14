@@ -19,17 +19,14 @@ public class Main
 		
 		log.setVisible(true);
 		
+		
+		PantallaRegistrarResultados a = new PantallaRegistrarResultados();
+		a.setVisible(true);
+		
 	}
 	
-	public static ArrayList<DesempenioPartido> desempeno;
-	
-	public static void main1(String[] args) 
-	{
-		desempeno = new ArrayList<>();
-		
 
 		
 	}
 
-}
 
