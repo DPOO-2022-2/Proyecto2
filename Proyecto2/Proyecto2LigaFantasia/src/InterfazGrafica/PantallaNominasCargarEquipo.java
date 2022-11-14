@@ -30,6 +30,10 @@ import java.awt.event.ActionEvent;
 
 public class PantallaNominasCargarEquipo extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTable table;
@@ -102,12 +106,12 @@ public class PantallaNominasCargarEquipo extends JFrame {
 						{
 							Equipo E = new Equipo();
 							
-							E.setId(Integer.parseInt(arreglo[0]));
-							E.setEquipo_real(arreglo[1]);
-							E.setJugadores(arreglo[2]);
-							E.setNombre(arreglo[3]);
-							E.setPresupuesto(arreglo[4]);
-							E.setFechas(arreglo[5]);
+					//		E.setId(Integer.parseInt(arreglo[0]));
+					//		E.setEquipo_real(arreglo[1]);
+					//		E.setJugadores(arreglo[2]);
+					//		E.setNombre(arreglo[3]);
+					//		E.setPresupuesto(arreglo[4]);
+					//		E.setFechas(arreglo[5]);
 							
 							
 							equipos.add(E);			
@@ -151,7 +155,7 @@ public class PantallaNominasCargarEquipo extends JFrame {
 					Equipo E = equipos.get(i);
 
 					TM.setValueAt(E.getId(), i, 1);
-					TM.setValueAt(E.getEquipo_real(), i, 2);
+				//	TM.setValueAt(E.getEquipo_real(), i, 2);
 					TM.setValueAt(E.getJugadores(), i, 3);
 					TM.setValueAt(E.getNombre(), i, 4);
 					TM.setValueAt(E.getPresupuesto(), i, 5);
@@ -184,63 +188,63 @@ public class PantallaNominasCargarEquipo extends JFrame {
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				public void actionPerformed(ActionEvent e) {
+				JFileChooser seleccionarArchivo = new JFileChooser();
+				FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos csv","csv");
+				
+				seleccionarArchivo.setFileFilter(filtro);
+				
+				int seleccionar = seleccionarArchivo.showOpenDialog(btnGuardar);
+				
+				if(seleccionar == JFileChooser.APPROVE_OPTION) 
+				{
 					
-					JFileChooser seleccionarArchivo = new JFileChooser();
-					FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos csv","csv");
+					File archivo = seleccionarArchivo.getSelectedFile();
+					guardarArchivoEquipo(archivo);		
+				}
+			}
+			
+			
+			private void guardarArchivoEquipo(File archivo) {
+				
+				FileWriter archive = null;
+				PrintWriter pw = null;
+				
+				try {
 					
-					seleccionarArchivo.setFileFilter(filtro);
+					archive = new FileWriter(archivo);
+					pw = new PrintWriter(archive);
 					
-					int seleccionar = seleccionarArchivo.showOpenDialog(btnGuardar);
-					
-					if(seleccionar == JFileChooser.APPROVE_OPTION) 
-					{
+					for (Equipo e: equipos) {
 						
-						File archivo = seleccionarArchivo.getSelectedFile();
-						guardarArchivoEquipo(archivo);		
+						String linea = e.getId()+","+ e.getEquipo_real + "," + e.getJugadores() + "," + e.getNombre() + "," + e.getPresupuesto() + "," + e.getFechas();
+						pw.println(linea);
+						
+						
+					
 					}
+					
+				} catch(Exception ex){
+					
+					ex.printStackTrace();
+				}
+				
+				finally {
+					try 
+					{
+						if(archive != null) {
+							archive.close();
+						}
+					} catch(Exception e) {
+						
+						e.printStackTrace();
+					}
+					
 				}
 				
 				
-				private void guardarArchivoEquipo(File archivo) {
-					
-					FileWriter archive = null;
-					PrintWriter pw = null;
-					
-					try {
-						
-						archive = new FileWriter(archivo);
-						pw = new PrintWriter(archive);
-						
-						for (Equipo e: equipos) {
-							
-							String linea = e.getId()+","+ e.getEquipo_real + "," + e.getJugadores() + "," + e.getNombre() + "," + e.getPresupuesto() + "," + e.getFechas();
-							pw.println(linea);
-							
-							
-						
-						}
-						
-					} catch(Exception ex){
-						
-						ex.printStackTrace();
-					}
-					
-					finally {
-						try 
-						{
-							if(archive != null) {
-								archive.close();
-							}
-						} catch(Exception e) {
-							
-							e.printStackTrace();
-						}
-						
-					}
-					
 			}
-		});
+		
+			});
 		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnGuardar.setBounds(532, 134, 293, 31);
 		contentPane.add(btnGuardar);

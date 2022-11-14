@@ -32,6 +32,10 @@ import java.awt.event.ActionEvent;
 public class PantallaNominasCargarLiga extends JFrame {
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	LinkedList<Equipo> equipos = new LinkedList<>();
 	LinkedList<Temporada> temporadas = new LinkedList<>();
 	private JPanel contentPane;

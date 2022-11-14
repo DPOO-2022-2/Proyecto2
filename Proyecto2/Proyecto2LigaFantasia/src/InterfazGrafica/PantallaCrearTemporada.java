@@ -32,10 +32,15 @@ import java.awt.Color;
 
 public class PantallaCrearTemporada extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	LinkedList<Temporada> temporadas = new LinkedList<>();
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTable table;
+	private JTextField textField_1;
 
 	/**
 	 * Create the frame.
@@ -60,10 +65,6 @@ public class PantallaCrearTemporada extends JFrame {
 		lblNombreLiga.setBounds(249, 88, 203, 25);
 		contentPane.add(lblNombreLiga);
 		
-		lblNombreLiga = new JTextField();
-		lblNombreLiga.setColumns(10);
-		lblNombreLiga.setBounds(378, 88, 298, 26);
-		contentPane.add(lblNombreLiga);
 		
 		JButton btnCargarInformacion = new JButton("Cargar Informacion Equipo");
 		btnCargarInformacion.addActionListener(new ActionListener() {
@@ -411,6 +412,11 @@ public class PantallaCrearTemporada extends JFrame {
 		btnGuardarEquipo.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnGuardarEquipo.setBounds(84, 561, 368, 23);
 		contentPane.add(btnGuardarEquipo);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(372, 94, 383, 14);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
 	}
 
 }

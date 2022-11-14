@@ -38,8 +38,8 @@ public class PantallaRegistroNominas extends JFrame {
 		btnCargarEquipo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
-				PantallaNominasCargarEquipo NCE = new PantallaNominasCargarEquipo();
-				NCE.setVisible(true);
+				PantallaNominasCargarEquipo pantallaEquipo = new PantallaNominasCargarEquipo();
+				pantallaEquipo.setVisible(true);
 			}
 		});
 		btnCargarEquipo.setFont(new Font("Tahoma", Font.PLAIN, 40));

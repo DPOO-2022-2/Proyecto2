@@ -15,6 +15,10 @@ import java.awt.Color;
 
 public class PantallaConfiguracionAdministrador extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 
@@ -64,8 +68,8 @@ public class PantallaConfiguracionAdministrador extends JFrame {
 		btnCrearTemporada.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				PantallaCrearTemporada CT = new PantallaCrearTemporada();
-				CT.setVisible(true);
+				PantallaCrearTemporada pantallaTemporada = new PantallaCrearTemporada();
+				pantallaTemporada.setVisible(true);
 			}
 		});
 		btnCrearTemporada.setFont(new Font("Tahoma", Font.PLAIN, 40));
