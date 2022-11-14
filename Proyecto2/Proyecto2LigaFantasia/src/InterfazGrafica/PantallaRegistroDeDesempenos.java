@@ -170,26 +170,31 @@ public class PantallaRegistroDeDesempenos extends JFrame {
 		
 		JLabel lblVistaRegistroDe = new JLabel("Vista Registro de Desempeños");
 		lblVistaRegistroDe.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblVistaRegistroDe.setBounds(285, 282, 284, 31);
+		lblVistaRegistroDe.setBounds(306, 326, 284, 31);
 		contentPane.add(lblVistaRegistroDe);
 		
 		JButton btnCargarArchivo = new JButton("Cargar Archivo csv");
 		btnCargarArchivo.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCargarArchivo.setBounds(94, 324, 293, 31);
+		btnCargarArchivo.setBounds(95, 368, 293, 31);
 		contentPane.add(btnCargarArchivo);
 		
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnGuardar.setBounds(465, 324, 293, 31);
+		btnGuardar.setBounds(467, 368, 293, 31);
 		contentPane.add(btnGuardar);
 		
 		table = new JTable();
-		table.setBounds(53, 366, 772, 198);
+		table.setBounds(52, 410, 772, 198);
 		contentPane.add(table);
 		
 		JButton btnRegresarMunoRegistros = new JButton("Regresar Menu Registros");
 		btnRegresarMunoRegistros.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnRegresarMunoRegistros.setBounds(304, 598, 293, 31);
+		btnRegresarMunoRegistros.setBounds(297, 619, 293, 31);
 		contentPane.add(btnRegresarMunoRegistros);
+		
+		JButton btnCrear = new JButton("Crear");
+		btnCrear.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnCrear.setBounds(359, 284, 158, 31);
+		contentPane.add(btnCrear);
 	}
 }

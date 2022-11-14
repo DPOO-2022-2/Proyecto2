@@ -8,8 +8,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import Clases.DesempenioPartido;
+import Clases.Partido;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -22,10 +24,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.LinkedList;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
 public class PantallaRegistrarResultados extends JFrame {
+	
+	
+	LinkedList<Partido> partidos = new LinkedList<>();
 
 	/**
 	 * 
@@ -54,62 +60,62 @@ public class PantallaRegistrarResultados extends JFrame {
 		
 		JLabel lblRegistroDeResultados = new JLabel("REGISTRO DE RESULTADOS");
 		lblRegistroDeResultados.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblRegistroDeResultados.setBounds(269, 42, 393, 37);
+		lblRegistroDeResultados.setBounds(269, 23, 393, 37);
 		contentPane.add(lblRegistroDeResultados);
 		
 		textFieldEquipoLocal = new JTextField();
-		textFieldEquipoLocal.setBounds(230, 145, 203, 20);
+		textFieldEquipoLocal.setBounds(230, 119, 203, 20);
 		contentPane.add(textFieldEquipoLocal);
 		textFieldEquipoLocal.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Equipo Local");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel.setBounds(93, 141, 127, 20);
+		lblNewLabel.setBounds(93, 115, 127, 20);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblMarcadorEquipoLocal = new JLabel("Marcador Equipo Local");
 		lblMarcadorEquipoLocal.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblMarcadorEquipoLocal.setBounds(480, 141, 203, 20);
+		lblMarcadorEquipoLocal.setBounds(480, 115, 203, 20);
 		contentPane.add(lblMarcadorEquipoLocal);
 		
 		textFieldMarcadoEquipoLocal = new JTextField();
 		textFieldMarcadoEquipoLocal.setColumns(10);
-		textFieldMarcadoEquipoLocal.setBounds(714, 145, 105, 20);
+		textFieldMarcadoEquipoLocal.setBounds(714, 119, 105, 20);
 		contentPane.add(textFieldMarcadoEquipoLocal);
 		
 		JLabel lblEquipoVisitante = new JLabel("Equipo Visitante");
 		lblEquipoVisitante.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblEquipoVisitante.setBounds(62, 172, 158, 20);
+		lblEquipoVisitante.setBounds(62, 146, 158, 20);
 		contentPane.add(lblEquipoVisitante);
 		
 		textFieldEquipoVisitante = new JTextField();
 		textFieldEquipoVisitante.setColumns(10);
-		textFieldEquipoVisitante.setBounds(230, 176, 203, 20);
+		textFieldEquipoVisitante.setBounds(230, 150, 203, 20);
 		contentPane.add(textFieldEquipoVisitante);
 		
 		JLabel lblMarcadorEquipoVisitante = new JLabel("Marcador Equipo Visitante");
 		lblMarcadorEquipoVisitante.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblMarcadorEquipoVisitante.setBounds(451, 176, 232, 20);
+		lblMarcadorEquipoVisitante.setBounds(451, 146, 232, 20);
 		contentPane.add(lblMarcadorEquipoVisitante);
 		
 		textFieldMarcadorEquipoVisitante = new JTextField();
 		textFieldMarcadorEquipoVisitante.setColumns(10);
-		textFieldMarcadorEquipoVisitante.setBounds(714, 176, 105, 20);
+		textFieldMarcadorEquipoVisitante.setBounds(714, 150, 105, 20);
 		contentPane.add(textFieldMarcadorEquipoVisitante);
 		
 		JLabel lblFechaPartidos = new JLabel("Fecha Partido (DD/MM/AA)");
 		lblFechaPartidos.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblFechaPartidos.setBounds(203, 110, 274, 20);
+		lblFechaPartidos.setBounds(200, 84, 274, 20);
 		contentPane.add(lblFechaPartidos);
 		
 		textFieldFechaPartido = new JTextField();
 		textFieldFechaPartido.setColumns(10);
-		textFieldFechaPartido.setBounds(480, 110, 203, 20);
+		textFieldFechaPartido.setBounds(480, 84, 203, 20);
 		contentPane.add(textFieldFechaPartido);
 		
 		JLabel lblCargarDesempenos = new JLabel("Vista Registro de Resultados");
 		lblCargarDesempenos.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblCargarDesempenos.setBounds(314, 218, 274, 31);
+		lblCargarDesempenos.setBounds(314, 232, 274, 31);
 		contentPane.add(lblCargarDesempenos);
 		
 		table = new JTable();
@@ -125,12 +131,12 @@ public class PantallaRegistrarResultados extends JFrame {
 				
 				seleccionarArchivo.setFileFilter(filtro);
 				
-				int seleccionar = seleccionarArchivo.showOpenDialog(this);
+				int seleccionar = seleccionarArchivo.showOpenDialog(btnGuardar);
 				
 				if(seleccionar == JFileChooser.APPROVE_OPTION) 
 				{
 					
-					File archivo = new seleccionarArchivo.getSelectedFile();
+					File archivo = seleccionarArchivo.getSelectedFile();
 					guardarArchivo(archivo);		
 				}
 			}
@@ -145,9 +151,9 @@ public class PantallaRegistrarResultados extends JFrame {
 					archive = new FileWriter(archivo);
 					pw = new PrintWriter(archive);
 					
-					for (DesempenioPartido DP: desempeno) {
+					for (Partido P: partidos) {
 						
-						String linea = DP.getCantidadMinutosJugados()+","+ DP.getGoles()+ "," + DP.getAutogoles() + "," + DP.getAsistencias() + "," + DP.getGolesRecibidos()+ "," +DP.getPenalesDetenidos()+ "," +DP.getPenalesErrados()+ "," +DP.getTarjetasAmarillas()+ "," + DP.getTarjetasRojas();
+						String linea = P.getId()+","+ P.getEquipo_local() +","+P.getGoles_local() +","+ P.getEquipo_visitante()+","+P.getGoles_visitante();
 						pw.println(linea);
 						
 					}
@@ -185,12 +191,12 @@ public class PantallaRegistrarResultados extends JFrame {
 			
 			seleccionarArchivo.setFileFilter(filtro);
 			
-			int seleccionar = seleccionarArchivo.showOpenDialog(this);
+			int seleccionar = seleccionarArchivo.showOpenDialog(btnCargarArchivo);
 			
 			if(seleccionar == JFileChooser.APPROVE_OPTION) 
 			{
 				
-				File archivo = new seleccionarArchivo.getSelectedFile();
+				File archivo = seleccionarArchivo.getSelectedFile();
 				cargarArchivo(archivo);		
 			}
 			}
@@ -210,6 +216,33 @@ public class PantallaRegistrarResultados extends JFrame {
 		btnRegresarMenuRegistros.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnRegresarMenuRegistros.setBounds(314, 602, 293, 31);
 		contentPane.add(btnRegresarMenuRegistros);
+		
+		JButton btnCrear = new JButton("Crear");
+		btnCrear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Partido P = new Partido();
+				P.setId(partidos.size());
+				P.setEquipo_local(textFieldEquipoLocal.getText());
+				P.setGoles_local(textFieldMarcadoEquipoLocal.getText());
+				P.setEquipo_visitante(textFieldEquipoVisitante.getText());
+				P.setGoles_visitante(textFieldMarcadorEquipoVisitante.getText());
+				
+				partidos.add(P);
+				
+				textFieldEquipoLocal.setText("");
+				textFieldMarcadoEquipoLocal.setText("");
+				textFieldEquipoVisitante.setText("");
+				textFieldMarcadorEquipoVisitante.setText("");
+				
+				llenarTabla();
+				
+				
+			}
+		});
+		btnCrear.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnCrear.setBounds(370, 190, 158, 31);
+		contentPane.add(btnCrear);
 		}
 		
 		public void cargarArchivo(File archivo) {
@@ -233,22 +266,15 @@ public class PantallaRegistrarResultados extends JFrame {
 					
 					if(arreglo.length == 15)
 					{
-						DesempenioPartido DP = new DesempenioPartido();
+						Partido P = new Partido();
 						
-						DP.setCantidadMinutosJugados(Integer.parseInt(arreglo[0]));
-						DP.setGoles(Integer.parseInt(arreglo[1]));
-						DP.setAutogoles(Integer.parseInt(arreglo[2]));
-						DP.setAsistencias(Integer.parseInt(arreglo[3]));
-						DP.setGolesRecibidos(Integer.parseInt(arreglo[4]));
-						DP.setPenalesDetenidos(Integer.parseInt(arreglo[5]));
-						DP.setPenalesErrados(Integer.parseInt(arreglo[6]));
-						DP.setTarjetasAmarillas(Integer.parseInt(arreglo[7]));
-						DP.setTarjetasRojas(Integer.parseInt(arreglo[8]));
-						DP.setPuntaje(Integer.parseInt(arreglo[9]));
+						P.setId(Integer.parseInt(arreglo[0]));
+						P.setEquipo_local(arreglo[1]);
+						P.setGoles_local(arreglo[2]);
+						P.setEquipo_visitante(arreglo[3]);
+						P.setGoles_visitante(arreglo[4]);
 						
-						DesempenioPartido.add(DP);
-						
-						
+						partidos.add(P);
 						
 					}
 				}
@@ -271,18 +297,27 @@ public class PantallaRegistrarResultados extends JFrame {
 				}
 				catch(Exception ex) {
 					
-					ex.printStackTrace();
-					
+					ex.printStackTrace();	
 				}
 			}
-			
-		
 		}
-	
-	
-		
+
 	private void llenarTabla() {
-		DefaultTableModel modelo = new DefaultTableModel(new String[]{"CantidadMinutosJugados" , "Goles" , "Autogoles", "Asistencias", "GolesRecibidos", "PenalesDetenidos", "PenalesErrados", "TarjetasAmarillas", "TarjetasRojas", "Puntaje", "PuntajeDesenpenio"}, defaultCloseOperation);
+		DefaultTableModel MD = new DefaultTableModel(new String[]{"ID","Equipo local" , "Marcador Equipo local" , "Equipo Visitante", "Marcador Equipo Visitante"}, partidos.size());
+		
+		table.setModel(MD);
+		
+		TableModel TM = table.getModel();
+		
+		for(int i = 0; i<partidos.size();i++){
+			
+			Partido P = partidos.get(i);
+			TM.setValueAt(P.getId(), i, 0);
+			TM.setValueAt(P.getId(), i, 1);
+			TM.setValueAt(P.getId(), i, 2);
+			TM.setValueAt(P.getId(), i, 3);
+			TM.setValueAt(P.getId(), i, 4);
+		}
 		
 	}
 }

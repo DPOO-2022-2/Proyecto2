@@ -19,9 +19,7 @@ public class Main
 		
 		log.setVisible(true);
 		
-		
-		PantallaRegistrarResultados a = new PantallaRegistrarResultados();
-		a.setVisible(true);
+	
 		
 	}
 	

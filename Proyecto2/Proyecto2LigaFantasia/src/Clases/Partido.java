@@ -1,50 +1,55 @@
 package Clases;
 
 public class Partido {
-	private String id;
-	private Equipo equipo_local;
-	private Equipo equipo_visitante;
-	private int goles_local;
-	private int goles_visitante;
+	private String Id;
+	private String Equipo_local;
+	private String Equipo_visitante;
+	private String Goles_local;
+	private String Goles_visitante;
 
 	public String getId() {
-		return id;
+		return Id;
 	}
 
 	public void setId(String id) {
-		this.id = id;
+		this.Id = id;
 	}
 
-	public Equipo getEquipo_local() {
-		return equipo_local;
+	public String getEquipo_local() {
+		return Equipo_local;
 	}
 
-	public void setEquipo_local(Equipo equipo_local) {
-		this.equipo_local = equipo_local;
+	public void setEquipo_local(String string) {
+		this.Equipo_local = string;
 	}
 
-	public Equipo getEquipo_visitante() {
-		return equipo_visitante;
+	public String getEquipo_visitante() {
+		return Equipo_visitante;
 	}
 
-	public void setEquipo_visitante(Equipo equipo_visitante) {
-		this.equipo_visitante = equipo_visitante;
+	public void setEquipo_visitante(String equipo_visitante) {
+		this.Equipo_visitante = equipo_visitante;
 	}
 
-	public int getGoles_local() {
-		return goles_local;
+	public String getGoles_local() {
+		return Goles_local;
 	}
 
-	public void setGoles_local(int goles_local) {
-		this.goles_local = goles_local;
+	public void setGoles_local(String goles_local) {
+		this.Goles_local = goles_local;
 	}
 
-	public int getGoles_visitante() {
-		return goles_visitante;
+	public String getGoles_visitante() {
+		return Goles_visitante;
 	}
 
-	public void setGoles_visitante(int goles_visitante) {
-		this.goles_visitante = goles_visitante;
+	public void setGoles_visitante(String goles_visitante) {
+		this.Goles_visitante = goles_visitante;
+	}
+
+	public void setId(int size) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

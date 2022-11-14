@@ -2,6 +2,8 @@ package Clases;
 
 public class DesempenioPartido {
 	
+	private String nombre;
+	private String equipo;
 	private int CantidadMinutosJugados;
 	private int Goles;
 	private int Autogoles;
@@ -100,6 +102,22 @@ public class DesempenioPartido {
 
 	public void setPuntaje(int puntaje) {
 		this.Puntaje = puntaje;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getEquipo() {
+		return equipo;
+	}
+
+	public void setEquipo(String equipo) {
+		this.equipo = equipo;
 	}
 
 }
