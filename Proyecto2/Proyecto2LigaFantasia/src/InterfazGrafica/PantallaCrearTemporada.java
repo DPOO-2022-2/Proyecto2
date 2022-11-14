@@ -11,6 +11,7 @@ import javax.swing.table.TableModel;
 
 import Clases.DesempenioPartido;
 import Clases.Equipo;
+import Clases.Partido;
 import Clases.Temporada;
 
 import javax.swing.JLabel;
@@ -25,15 +26,16 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.LinkedList;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
 public class PantallaCrearTemporada extends JFrame {
 
+	LinkedList<Temporada> temporadas = new LinkedList<>();
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTable table;
-	private JTextField textField_1;
 
 	/**
 	 * Create the frame.
@@ -55,13 +57,13 @@ public class PantallaCrearTemporada extends JFrame {
 		
 		JLabel lblNombreLiga = new JLabel("Nombre Liga");
 		lblNombreLiga.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNombreLiga.setBounds(209, 88, 203, 25);
+		lblNombreLiga.setBounds(249, 88, 203, 25);
 		contentPane.add(lblNombreLiga);
 		
-		textFieldNombreLiga = new JTextField();
-		textFieldNombreLiga.setColumns(10);
-		textFieldNombreLiga.setBounds(379, 94, 298, 20);
-		contentPane.add(textFieldNombreLiga);
+		lblNombreLiga = new JTextField();
+		lblNombreLiga.setColumns(10);
+		lblNombreLiga.setBounds(378, 88, 298, 26);
+		contentPane.add(lblNombreLiga);
 		
 		JButton btnCargarInformacion = new JButton("Cargar Informacion Equipo");
 		btnCargarInformacion.addActionListener(new ActionListener() {
@@ -409,11 +411,6 @@ public class PantallaCrearTemporada extends JFrame {
 		btnGuardarEquipo.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnGuardarEquipo.setBounds(84, 561, 368, 23);
 		contentPane.add(btnGuardarEquipo);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(334, 94, 342, 14);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
 	}
 
 }

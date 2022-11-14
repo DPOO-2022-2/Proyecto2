@@ -291,6 +291,14 @@ public class PantallaRegistroDeDesempenos extends JFrame {
 		contentPane.add(table);
 		
 		JButton btnRegresarMunoRegistros = new JButton("Regresar Menu Registros");
+		btnRegresarMunoRegistros.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				PantallaRegistrosAdministrador RA = new PantallaRegistrosAdministrador();
+				
+				RA.setVisible(true);
+			}
+		});
 		btnRegresarMunoRegistros.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnRegresarMunoRegistros.setBounds(297, 619, 293, 31);
 		contentPane.add(btnRegresarMunoRegistros);
