@@ -10,7 +10,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
-import Clases.DesempenioPartido;
 import Clases.Partido;
 
 import javax.swing.JLabel;
@@ -223,6 +222,7 @@ public class PantallaRegistrarResultados extends JFrame {
 				
 				Partido P = new Partido();
 				P.setId(partidos.size());
+				P.setFecha(textFieldFechaPartido.getText());
 				P.setEquipo_local(textFieldEquipoLocal.getText());
 				P.setGoles_local(textFieldMarcadoEquipoLocal.getText());
 				P.setEquipo_visitante(textFieldEquipoVisitante.getText());
@@ -230,6 +230,7 @@ public class PantallaRegistrarResultados extends JFrame {
 				
 				partidos.add(P);
 				
+				textFieldFechaPartido.setText("");
 				textFieldEquipoLocal.setText("");
 				textFieldMarcadoEquipoLocal.setText("");
 				textFieldEquipoVisitante.setText("");
@@ -269,10 +270,11 @@ public class PantallaRegistrarResultados extends JFrame {
 						Partido P = new Partido();
 						
 						P.setId(Integer.parseInt(arreglo[0]));
-						P.setEquipo_local(arreglo[1]);
-						P.setGoles_local(arreglo[2]);
-						P.setEquipo_visitante(arreglo[3]);
-						P.setGoles_visitante(arreglo[4]);
+						P.setFecha(arreglo[1]);
+						P.setEquipo_local(arreglo[2]);
+						P.setGoles_local(arreglo[3]);
+						P.setEquipo_visitante(arreglo[4]);
+						P.setGoles_visitante(arreglo[5]);
 						
 						partidos.add(P);
 						
@@ -303,7 +305,7 @@ public class PantallaRegistrarResultados extends JFrame {
 		}
 
 	private void llenarTabla() {
-		DefaultTableModel MD = new DefaultTableModel(new String[]{"ID","Equipo local" , "Marcador Equipo local" , "Equipo Visitante", "Marcador Equipo Visitante"}, partidos.size());
+		DefaultTableModel MD = new DefaultTableModel(new String[]{"Fechas", "Equipo local" , "Marcador Equipo local" , "Equipo Visitante", "Marcador Equipo Visitante"}, partidos.size());
 		
 		table.setModel(MD);
 		
@@ -312,11 +314,11 @@ public class PantallaRegistrarResultados extends JFrame {
 		for(int i = 0; i<partidos.size();i++){
 			
 			Partido P = partidos.get(i);
-			TM.setValueAt(P.getId(), i, 0);
-			TM.setValueAt(P.getId(), i, 1);
-			TM.setValueAt(P.getId(), i, 2);
-			TM.setValueAt(P.getId(), i, 3);
-			TM.setValueAt(P.getId(), i, 4);
+			TM.setValueAt(P.getFecha(), i, 0);
+			TM.setValueAt(P.getEquipo_local(), i, 1);
+			TM.setValueAt(P.getGoles_local(), i, 2);
+			TM.setValueAt(P.getEquipo_visitante(), i, 3);
+			TM.setValueAt(P.getGoles_visitante(), i, 4);
 		}
 		
 	}

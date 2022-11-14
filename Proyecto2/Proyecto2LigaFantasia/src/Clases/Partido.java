@@ -6,6 +6,7 @@ public class Partido {
 	private String Equipo_visitante;
 	private String Goles_local;
 	private String Goles_visitante;
+	private String Fecha;
 
 	public String getId() {
 		return Id;
@@ -50,6 +51,14 @@ public class Partido {
 	public void setId(int size) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public String getFecha() {
+		return Fecha;
+	}
+
+	public void setFecha(String fecha) {
+		Fecha = fecha;
 	}
 
 }

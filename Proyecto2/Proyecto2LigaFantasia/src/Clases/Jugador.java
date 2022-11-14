@@ -6,7 +6,7 @@ public class Jugador extends DesempenioPartido{
 
 	private String nombre;
 	private String id;
-	private Posicion posicion;
+	private String posicion;
 	private double precio;
 
 	public String getNombre() {
@@ -25,11 +25,11 @@ public class Jugador extends DesempenioPartido{
 		this.id = id;
 	}
 
-	public Posicion getPosicion() {
+	public String getPosicion() {
 		return posicion;
 	}
 
-	public void setPosicion(Posicion posicion) {
+	public void setPosicion(String posicion) {
 		this.posicion = posicion;
 	}
 

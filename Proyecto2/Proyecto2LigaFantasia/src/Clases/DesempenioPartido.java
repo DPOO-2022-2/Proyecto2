@@ -2,18 +2,20 @@ package Clases;
 
 public class DesempenioPartido {
 	
+	private String Id;
 	private String nombre;
 	private String equipo;
-	private int CantidadMinutosJugados;
-	private int Goles;
-	private int Autogoles;
-	private int Asistencias;
-	private int GolesRecibidos;
-	private int PenalesDetenidos;
-	private int PenalesErrados;
-	private int TarjetasAmarillas;
-	private int TarjetasRojas;
-	private int Puntaje;
+	private String posicion;
+	private String CantidadMinutosJugados;
+	private String Goles;
+	private String Autogoles;
+	private String Asistencias;
+	private String GolesRecibidos;
+	private String PenalesDetenidos;
+	private String PenalesErrados;
+	private String TarjetasAmarillas;
+	private String TarjetasRojas;
+	private String Puntaje;
 	private Puntaje PuntajeDesenpenio;
 	
 	public Puntaje getPuntajeDesenpenio() {
@@ -24,83 +26,83 @@ public class DesempenioPartido {
 		this.PuntajeDesenpenio = puntajeDesenpenio;
 	}
 
-	public int getCantidadMinutosJugados() {
+	public String getCantidadMinutosJugados() {
 		return CantidadMinutosJugados;
 	}
 
-	public void setCantidadMinutosJugados(int cantidadMinutosJugados) {
+	public void setCantidadMinutosJugados(String cantidadMinutosJugados) {
 		this.CantidadMinutosJugados = cantidadMinutosJugados;
 	}
 
-	public int getAutogoles() {
+	public String getAutogoles() {
 		return Autogoles;
 	}
 
-	public void setAutogoles(int autogoles) {
+	public void setAutogoles(String autogoles) {
 		this.Autogoles = autogoles;
 	}
 
-	public int getAsistencias() {
+	public String getAsistencias() {
 		return Asistencias;
 	}
 
-	public void setAsistencias(int asistencias) {
+	public void setAsistencias(String asistencias) {
 		this.Asistencias = asistencias;
 	}
 
-	public int getGolesRecibidos() {
+	public String getGolesRecibidos() {
 		return GolesRecibidos;
 	}
 
-	public void setGolesRecibidos(int golesRecibidos) {
+	public void setGolesRecibidos(String golesRecibidos) {
 		this.GolesRecibidos = golesRecibidos;
 	}
 
-	public int getPenalesDetenidos() {
+	public String getPenalesDetenidos() {
 		return PenalesDetenidos;
 	}
 
-	public void setPenalesDetenidos(int penalesDetenidos) {
+	public void setPenalesDetenidos(String penalesDetenidos) {
 		this.PenalesDetenidos = penalesDetenidos;
 	}
 
-	public int getPenalesErrados() {
+	public String getPenalesErrados() {
 		return PenalesErrados;
 	}
 
-	public void setPenalesErrados(int penalesErrados) {
+	public void setPenalesErrados(String penalesErrados) {
 		this.PenalesErrados = penalesErrados;
 	}
 
-	public int getTarjetasAmarillas() {
+	public String getTarjetasAmarillas() {
 		return TarjetasAmarillas;
 	}
 
-	public void setTarjetasAmarillas(int tarjetasAmarillas) {
+	public void setTarjetasAmarillas(String tarjetasAmarillas) {
 		this.TarjetasAmarillas = tarjetasAmarillas;
 	}
 
-	public int getTarjetasRojas() {
+	public String getTarjetasRojas() {
 		return TarjetasRojas;
 	}
 
-	public void setTarjetasRojas(int tarjetasRojas) {
+	public void setTarjetasRojas(String tarjetasRojas) {
 		this.TarjetasRojas = tarjetasRojas;
 	}
 
-	public int getGoles() {
+	public String getGoles() {
 		return Goles;
 	}
 
-	public void setGoles(int goles) {
+	public void setGoles(String goles) {
 		this.Goles = goles;
 	}
 
-	public int getPuntaje() {
+	public String getPuntaje() {
 		return Puntaje;
 	}
 
-	public void setPuntaje(int puntaje) {
+	public void setPuntaje(String puntaje) {
 		this.Puntaje = puntaje;
 	}
 
@@ -120,4 +122,32 @@ public class DesempenioPartido {
 		this.equipo = equipo;
 	}
 
+	public String getId() {
+		return Id;
+	}
+
+	public void setId(String i) {
+		Id = i;
+	}
+
+	public String getPosicion() {
+		return posicion;
+	}
+
+	public void setPosicion(String posicion) {
+		this.posicion = posicion;
+	}
+
+	public void setId(int size) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
 }
+
+
+	
+
+
