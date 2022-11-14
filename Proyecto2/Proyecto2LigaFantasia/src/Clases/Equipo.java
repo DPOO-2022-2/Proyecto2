@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Equipo {
 	private String id;
-	private boolean equipo_real;
-	private List<Jugador> jugadores = new ArrayList<>();
-	private String nombre;
-	private double presupuesto;
-	private List<FechaEquipo> fechas = new ArrayList<>();
+	private boolean Equipo_real;
+	private List<Jugador> Jugadores = new ArrayList<>();
+	private String Nombre;
+	private double Presupuesto;
+	private List<FechaEquipo> Fechas = new ArrayList<>();
 	
 	public String getId() {
 		return id;
@@ -20,43 +20,45 @@ public class Equipo {
 	}
 
 	public boolean isEquipo_real() {
-		return equipo_real;
+		return Equipo_real;
 	}
 
 	public void setEquipo_real(boolean equipo_real) {
-		this.equipo_real = equipo_real;
+		this.Equipo_real = equipo_real;
 	}
 
 	public String getNombre() {
-		return nombre;
+		return Nombre;
 	}
 
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		this.Nombre = nombre;
 	}
 
 	public Double getPresupuesto() {
-		return presupuesto;
+		return Presupuesto;
 	}
 
 	public void setPresupuesto(Double presupuesto) {
-		this.presupuesto = presupuesto;
+		this.Presupuesto = presupuesto;
 	}
 
 	public List<Jugador> getJugadores() {
-		return jugadores;
+		return Jugadores;
 	}
 
-	public void setJugadores(List<Jugador> jugadores) {
-		this.jugadores = jugadores;
+	public void setJugadores(List<Jugador> arreglo) {
+		this.Jugadores = arreglo;
 	}
 
 	public List<FechaEquipo> getFechas() {
-		return fechas;
+		return Fechas;
 	}
 
 	public void setFechas(List<FechaEquipo> fechas) {
-		this.fechas = fechas;
+		this.Fechas = fechas;
 	}
+
+	
 
 }
