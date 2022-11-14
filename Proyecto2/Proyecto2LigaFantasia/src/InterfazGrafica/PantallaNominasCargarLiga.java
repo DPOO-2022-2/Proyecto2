@@ -53,7 +53,7 @@ public class PantallaNominasCargarLiga extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblCargarLiga = new JLabel("CARGAR LIGA");
-		lblCargarLiga.setBounds(341, 24, 214, 37);
+		lblCargarLiga.setBounds(356, 29, 214, 37);
 		lblCargarLiga.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		contentPane.add(lblCargarLiga);
 		
