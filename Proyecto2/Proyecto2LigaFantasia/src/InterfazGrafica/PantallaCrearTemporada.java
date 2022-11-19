@@ -37,6 +37,7 @@ public class PantallaCrearTemporada extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	LinkedList<Temporada> temporadas = new LinkedList<>();
+	LinkedList<Equipo> equipos = new LinkedList<>();
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTable table;
@@ -112,7 +113,6 @@ public class PantallaCrearTemporada extends JFrame {
 							E.setNombre(arreglo[3]);
 							E.setPresupuesto(arreglo[4]);
 							E.setFechas(arreglo[5]);
-							
 							
 							equipos.add(E);			
 						}
@@ -381,7 +381,7 @@ public class PantallaCrearTemporada extends JFrame {
 					
 					for (Equipo e: equipos) {
 						
-						String linea = e.getId()+","+ e.getEquipo_real + "," + e.getJugadores() + "," + e.getNombre() + "," + e.getPresupuesto() + "," + e.getFechas();
+						String linea = e.getId()+","+ e.getEquipo_real() + "," + e.getJugadores() + "," + e.getNombre() + "," + e.getPresupuesto() + "," + e.getFechas();
 						pw.println(linea);
 						
 						

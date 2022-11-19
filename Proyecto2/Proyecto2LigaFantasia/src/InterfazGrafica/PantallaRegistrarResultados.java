@@ -53,7 +53,7 @@ public class PantallaRegistrarResultados extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(192, 192, 192));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
+ 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -62,7 +62,7 @@ public class PantallaRegistrarResultados extends JFrame {
 		lblRegistroDeResultados.setBounds(269, 23, 393, 37);
 		contentPane.add(lblRegistroDeResultados);
 		
-		textFieldEquipoLocal = new JTextField();
+		textFieldEquipoLocal = new JTextField(); 
 		textFieldEquipoLocal.setBounds(230, 119, 203, 20);
 		contentPane.add(textFieldEquipoLocal);
 		textFieldEquipoLocal.setColumns(10);

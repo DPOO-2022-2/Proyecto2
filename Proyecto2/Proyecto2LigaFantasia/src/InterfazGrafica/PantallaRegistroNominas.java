@@ -31,7 +31,7 @@ public class PantallaRegistroNominas extends JFrame {
 		
 		JLabel lblRegistroDeNominas = new JLabel("REGISTRO DE NOMINAS");
 		lblRegistroDeNominas.setBounds(289, 32, 354, 37);
-		lblRegistroDeNominas.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblRegistroDeNominas.setFont(new Font("Tahoma", Font.PLAIN, 30)); 
 		contentPane.add(lblRegistroDeNominas);
 		
 		JButton btnCargarEquipo = new JButton("CARGAR EQUIPO");

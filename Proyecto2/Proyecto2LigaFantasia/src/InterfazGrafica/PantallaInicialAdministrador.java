@@ -40,7 +40,7 @@ public class PantallaInicialAdministrador extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				PantallaRegistrosAdministrador r = new PantallaRegistrosAdministrador();
-				r.setVisible(true);
+				r.setVisible(true); 
 			}
 		});
 		btnRegistros.setFont(new Font("Tahoma", Font.PLAIN, 40));

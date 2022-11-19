@@ -14,7 +14,7 @@ public class Formacion {
 		this.jugador = jugador;
 		this.titular = titular;
 		this.capitan = capitan;
-	}
+	} 
 
 	public boolean isCapitan() {
 		return capitan;

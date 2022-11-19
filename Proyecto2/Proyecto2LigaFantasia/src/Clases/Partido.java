@@ -17,7 +17,7 @@ public class Partido {
 	}
 
 	public String getEquipo_local() {
-		return Equipo_local;
+		return Equipo_local; 
 	}
 
 	public void setEquipo_local(String string) {

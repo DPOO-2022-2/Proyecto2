@@ -39,7 +39,7 @@ public class PantallaEliminarJugador extends JFrame {
 		lblEliminarJugador.setBounds(301, 22, 291, 37);
 		lblEliminarJugador.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		contentPane.add(lblEliminarJugador);
-		
+		 
 		JLabel lblNombreJugadorA = new JLabel("Nombre jugador a eliminar:");
 		lblNombreJugadorA.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNombreJugadorA.setBounds(135, 124, 383, 20);

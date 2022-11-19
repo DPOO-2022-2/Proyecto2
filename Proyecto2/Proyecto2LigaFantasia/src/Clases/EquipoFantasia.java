@@ -3,33 +3,18 @@ package Clases;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Equipo {
-	private String id; 
-	private boolean Equipo_real;
-	private List<Jugador> Jugadores = new ArrayList<>();
+public class EquipoFantasia {
+	private boolean Equipo_fantasia;
+	private List<JugadorFantasia> Jugadores = new ArrayList<>();
 	private String Nombre;
 	private double Presupuesto;
 	private List<FechaEquipo> Fechas = new ArrayList<>();
 	
-	public String getId() {
-		return id;
-	} 
 
-	public void setId(String i) {
-		this.id = i;
+	public boolean isEquipo_Fantasia() {
+		return Equipo_fantasia;
 	}
 
-	public boolean isEquipo_real() {
-		return Equipo_real;
-	}
-
-	public void setEquipo_real(boolean equipo_real) {
-		this.Equipo_real = equipo_real;
-	}
-	
-	public Boolean getEquipo_real() {
-		return Equipo_real;
-	}
 	public String getNombre() {
 		return Nombre;
 	}
@@ -46,11 +31,11 @@ public class Equipo {
 		this.Presupuesto = presupuesto;
 	}
 
-	public List<Jugador> getJugadores() {
+	public List<JugadorFantasia> getJugadores() {
 		return Jugadores;
 	}
 
-	public void setJugadores(List<Jugador> arreglo) {
+	public void setJugadores(List<JugadorFantasia> arreglo) {
 		this.Jugadores = arreglo;
 	}
 

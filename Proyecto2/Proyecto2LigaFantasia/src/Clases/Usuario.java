@@ -3,7 +3,7 @@ package Clases;
 public class Usuario {
 	
 	String nombreUsuario;
-	String contrasena;
+	String contrasena; 
 	
 	public String getNombreUsuario() {
 		return nombreUsuario;
@@ -17,7 +17,4 @@ public class Usuario {
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
 	}
-	
-	
-
 }

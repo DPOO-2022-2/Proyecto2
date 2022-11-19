@@ -52,7 +52,7 @@ public class PantallaNominasCargarEquipo extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblCargarEquipo = new JLabel("CARGAR EQUIPO");
+		JLabel lblCargarEquipo = new JLabel("CARGAR EQUIPO"); 
 		lblCargarEquipo.setBounds(327, 33, 252, 37);
 		lblCargarEquipo.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		contentPane.add(lblCargarEquipo);
@@ -60,7 +60,7 @@ public class PantallaNominasCargarEquipo extends JFrame {
 		JLabel lblNombreEquipo = new JLabel("Nombre Equipo Real");
 		lblNombreEquipo.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNombreEquipo.setBounds(211, 91, 203, 20);
-		contentPane.add(lblNombreEquipo);
+		contentPane.add(lblNombreEquipo); 
 		
 		textField = new JTextField();
 		textField.setColumns(10);
@@ -90,7 +90,7 @@ public class PantallaNominasCargarEquipo extends JFrame {
 				FileReader fr = null;
 				BufferedReader br = null;
 				
-			
+			 
 				try {
 					
 					fr = new FileReader(archivo);

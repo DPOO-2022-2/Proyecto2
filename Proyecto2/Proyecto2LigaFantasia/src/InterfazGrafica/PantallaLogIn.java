@@ -77,7 +77,7 @@ public class PantallaLogIn extends JFrame {
 					
 					//JOptionPane.showMessageDialog(frame, "Inicio de sesion exitoso");
 					
-					
+					 
 				}
 				else 
 				{

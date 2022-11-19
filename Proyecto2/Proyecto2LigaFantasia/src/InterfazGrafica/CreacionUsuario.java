@@ -33,7 +33,7 @@ public class CreacionUsuario extends JFrame {
 		contentPane.setBackground(new Color(192, 192, 192));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		setContentPane(contentPane);
+		setContentPane(contentPane); 
 		contentPane.setLayout(null);
 		
 		JLabel lbCreacionNuevoUsuario = new JLabel("Creacion nuevo usuario");
@@ -48,7 +48,7 @@ public class CreacionUsuario extends JFrame {
 		
 		JLabel lbContrasena = new JLabel("Contraseña:");
 		lbContrasena.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lbContrasena.setBounds(89, 161, 128, 41);
+		lbContrasena.setBounds(89, 161, 128, 41); 
 		contentPane.add(lbContrasena);
 		
 		textFieldUsuarioNuevo = new JTextField();
@@ -77,8 +77,6 @@ public class CreacionUsuario extends JFrame {
 				passwordFieldContrasenaNueva.setText("");
 				
 				JOptionPane.showMessageDialog(frame, "Usuario creado con exito");
-				
-				
 				
 			}
 		});

@@ -53,7 +53,7 @@ public class PantallaRegistroDeDesempenos extends JFrame {
 	private JTextField textFieldTR;
 	private JTextField textFieldPuntaje;
 	private JTable table;
-	private JTextField textFieldPosicion;
+	private JTextField textFieldPosicion; 
 
 
 	/**

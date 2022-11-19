@@ -17,7 +17,7 @@ public class PantallaRegistrosAdministrador extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PantallaRegistrosAdministrador() {
+	public PantallaRegistrosAdministrador() { 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 900, 700);
 		contentPane = new JPanel();

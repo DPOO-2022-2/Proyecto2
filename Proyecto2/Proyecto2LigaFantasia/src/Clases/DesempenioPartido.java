@@ -17,7 +17,7 @@ public class DesempenioPartido {
 	private String TarjetasRojas;
 	private String Puntaje;
 	private Puntaje PuntajeDesenpenio;
-	
+	 
 	public Puntaje getPuntajeDesenpenio() {
 		return PuntajeDesenpenio;
 	}
@@ -106,7 +106,7 @@ public class DesempenioPartido {
 		this.Puntaje = puntaje;
 	}
 
-	public String getNombre() {
+	public String getNombre() { 
 		return nombre;
 	}
 

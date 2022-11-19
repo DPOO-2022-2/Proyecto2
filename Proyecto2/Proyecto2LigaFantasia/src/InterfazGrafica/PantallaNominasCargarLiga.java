@@ -37,14 +37,14 @@ public class PantallaNominasCargarLiga extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	LinkedList<Equipo> equipos = new LinkedList<>();
-	LinkedList<Temporada> temporadas = new LinkedList<>();
+	LinkedList<Temporada> temporadas = new LinkedList<>(); 
 	private JPanel contentPane;
 	private JTextField textFieldNombreLiga;
 	private JTable table;
 
 
 	/**
-	 * Create the frame.
+	 * Create the frame. 
 	 */
 	public PantallaNominasCargarLiga() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -70,6 +70,110 @@ public class PantallaNominasCargarLiga extends JFrame {
 		textFieldNombreLiga.setColumns(10);
 		textFieldNombreLiga.setBounds(379, 94, 298, 20);
 		contentPane.add(textFieldNombreLiga);
+		
+		JButton btnCargarInformacion = new JButton("Cargar Informacion Equipo");
+		btnCargarInformacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				JFileChooser seleccionarArchivo = new JFileChooser();
+				FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos csv","csv");
+					
+				seleccionarArchivo.setFileFilter(filtro);
+					
+				int seleccionar = seleccionarArchivo.showOpenDialog(btnCargarInformacion);
+					
+				if(seleccionar == JFileChooser.APPROVE_OPTION) 
+					{
+						File archivo = seleccionarArchivo.getSelectedFile();
+						cargarArchivoEquipo(archivo);		
+					}
+				
+				
+			}
+
+			private void cargarArchivoEquipo(File archivo) {
+				FileReader fr = null; 
+				BufferedReader br = null;
+				
+			
+				try {
+					
+					fr = new FileReader(archivo);
+					br = new BufferedReader(fr);
+					
+					String linea;
+					
+					while ((linea=br.readLine()) !=null) {
+						
+						String arreglo []= linea.split(",");
+						
+						if(arreglo.length == 15)
+						{
+							Equipo E = new Equipo();
+							
+							E.setId(arreglo[0]);
+							E.setEquipo_real(arreglo[1]);
+							E.setJugadores(arreglo[2]);
+							E.setNombre(arreglo[3]);
+							E.setPresupuesto(arreglo[4]);
+							E.setFechas(arreglo[5]);
+							
+						
+							equipos.add(E);			
+						}
+					}
+					
+					llenarTablaEquipo();
+					
+				} 
+				
+				catch(Exception ex) 
+				{
+					ex.printStackTrace();
+				}
+				
+				finally {
+					try {
+						if( fr != null) {
+							fr.close();
+						}
+						
+					}
+					catch(Exception ex) {
+						
+						ex.printStackTrace();	
+					}
+				}
+				
+			}
+
+			private void llenarTablaEquipo() {
+				
+				DefaultTableModel MD = new DefaultTableModel(new String[]{"ID", "Equipo", "Jugadores", "Nombre" , "Presupuesto" , "Fechas"}, equipos.size());
+				
+				table.setModel(MD);
+				
+				TableModel TM = table.getModel();
+				
+				for(int i = 0; i<equipos.size();i++){
+					
+					Equipo E = equipos.get(i);
+
+					TM.setValueAt(E.getId(), i, 1);
+					TM.setValueAt(E.getEquipo_real(), i, 2);
+					TM.setValueAt(E.getJugadores(), i, 3);
+					TM.setValueAt(E.getNombre(), i, 4);
+					TM.setValueAt(E.getPresupuesto(), i, 5);
+					TM.setValueAt(E.getFechas(), i, 5);
+					
+				}
+				
+			}
+		});
+		
+		btnCargarInformacion.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnCargarInformacion.setBounds(64, 135, 368, 23);
+		contentPane.add(btnCargarInformacion);
 		
 		table = new JTable();
 		table.setBounds(64, 169, 787, 381);
@@ -186,7 +290,7 @@ public class PantallaNominasCargarLiga extends JFrame {
 			}
 		});
 		btnCargarInformacionLiga.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCargarInformacionLiga.setBounds(80, 135, 368, 23);
+		btnCargarInformacionLiga.setBounds(442, 135, 368, 23);
 		contentPane.add(btnCargarInformacionLiga);
 		
 		JButton btnGuardar = new JButton("Guardar temporada");
@@ -247,8 +351,72 @@ public class PantallaNominasCargarLiga extends JFrame {
 			}
 		});
 		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnGuardar.setBounds(469, 135, 368, 23);
+		btnGuardar.setBounds(462, 561, 368, 23);
 		contentPane.add(btnGuardar);
+		
+		JButton btnGuardarEquipo = new JButton("Guardar Equipo");
+		btnGuardarEquipo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				JFileChooser seleccionarArchivo = new JFileChooser();
+				FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos csv","csv");
+				
+				seleccionarArchivo.setFileFilter(filtro);
+				
+				int seleccionar = seleccionarArchivo.showOpenDialog(btnGuardar);
+				
+				if(seleccionar == JFileChooser.APPROVE_OPTION) 
+				{
+					
+					File archivo = seleccionarArchivo.getSelectedFile();
+					guardarArchivoEquipo(archivo);		
+				}
+			}
+			
+			
+			private void guardarArchivoEquipo(File archivo) {
+				
+				FileWriter archive = null;
+				PrintWriter pw = null;
+				
+				try {
+					
+					archive = new FileWriter(archivo);
+					pw = new PrintWriter(archive);
+					
+					for (Equipo e: equipos) {
+						
+						String linea = e.getId()+","+ e.getEquipo_real + "," + e.getJugadores() + "," + e.getNombre() + "," + e.getPresupuesto() + "," + e.getFechas();
+						pw.println(linea);
+						
+						
+					
+					}
+					
+				} catch(Exception ex){
+					
+					ex.printStackTrace();
+				}
+				
+				finally {
+					try 
+					{
+						if(archive != null) {
+							archive.close();
+						}
+					} catch(Exception e) {
+						
+						e.printStackTrace();
+					}
+					
+				}
+				
+				
+			}
+		});
+		btnGuardarEquipo.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnGuardarEquipo.setBounds(84, 561, 368, 23);
+		contentPane.add(btnGuardarEquipo);
 	}
 
 

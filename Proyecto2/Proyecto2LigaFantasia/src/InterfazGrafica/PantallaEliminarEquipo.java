@@ -35,7 +35,7 @@ public class PantallaEliminarEquipo extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblEliminarEquipo = new JLabel("ELIMINAR EQUIPO");
+		JLabel lblEliminarEquipo = new JLabel("ELIMINAR EQUIPO"); 
 		lblEliminarEquipo.setBounds(316, 33, 275, 37);
 		lblEliminarEquipo.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		contentPane.add(lblEliminarEquipo);
